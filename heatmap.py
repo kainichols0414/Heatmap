@@ -1,8 +1,15 @@
 from graphics import *
 from random import *
 
+"""
+create_snp_heatmap will display a window heat map of data,
+The maximum size for a map is 500 pixels wide, but given less than 500 data
+points the window will scale down.
+To view the labels click on any point.
+When window is open any code after will not run until you close the window
+"""
 
-def create_snp_heatmap(snp_vector,labels,numLabels):
+def create_snp_heatmap(snp_vector,labels):
     #create scale
     sort=sorted(snp_vector);
     maxValue=sort[-1]
@@ -41,7 +48,6 @@ def create_snp_heatmap(snp_vector,labels,numLabels):
         lineColor=color_rgb(int(r),int(g),int(b))
         line.setOutline(lineColor)
         line.draw(window)
-    print(scale)
     while window.isOpen():
         #erase with rectangle
         rect=Rectangle(Point(0,height+1),Point(width+2*indent,height+height/3))
